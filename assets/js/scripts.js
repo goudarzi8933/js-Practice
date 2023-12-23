@@ -46,7 +46,7 @@ function validated(){
 		pass_error.style.display = "block";
 		return false;
 	}else {
-        password.style.border = "1px solid silver";
+    password.style.border = "1px solid silver";
 		pass_error.style.display = "none";
     }
 
