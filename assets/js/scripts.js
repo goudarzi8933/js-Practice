@@ -63,8 +63,8 @@ if(getCookie('email')=='' || getCookie('password')==''){
 function login(){
     let email = document.getElementById('email').value;
     let password = document.getElementById('password').value;
-    setCookie('email', email);
-    setCookie('password', password);
+    setCookie('email', email,30);
+    setCookie('password', password,30);
     hideForm();
     showWmsg();
 }
