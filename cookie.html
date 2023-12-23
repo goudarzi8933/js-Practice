@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="wmsg">
+        <p>
+            Wellcome <span id="enter"></span>
+        </p>
+        <button onclick="home()" id="btnhome">Home</button>
+    </div>
+    <div class="container" id="form">
+        <h1 class="label">User Login</h1>
+        <form class="login_form" action="#" name="form" onsubmit="return validated()">
+            <div class="font">Email or Phone</div>
+            <input type="text" name="email" id="email">
+            <div id="email_error">Please fill up your Email or Phone</div>
+            <div class="font font2">Password</div>
+            <input type="password" name="password" id="password">
+            <div id="pass_error">Please fill up your Password</div>
+            <button type="submit" onclick="login">Login</button>
+        </form>
+    </div>
+
+    <script src="assets/js/scripts.js"></script>
+</body>
+
+</html>
