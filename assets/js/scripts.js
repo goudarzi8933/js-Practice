@@ -38,7 +38,7 @@ function validated(){
 		email_error.style.display = "block";
 		return false;
 	}else {
-        email.style.border = "1px solid silver";
+    email.style.border = "1px solid silver";
 		email_error.style.display = "none";
     }
 	if (password.value.length < 6) {
@@ -52,7 +52,7 @@ function validated(){
 
 }
 
-if(getCookie('email')=='' || getCookie('password')==''){
+if(getCookie('email')=='' && getCookie('password')==''){
     showForm();
     hideWmsg();
 } else {
@@ -64,9 +64,7 @@ function login(){
     let email = document.getElementById('email').value;
     let password = document.getElementById('password').value;
     setCookie('email', email,30);
-    setCookie('password', password,30);
-    hideForm();
-    showWmsg();
+  
 }
 
 function home(){
