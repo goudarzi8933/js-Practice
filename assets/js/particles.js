@@ -20,13 +20,13 @@ var pJS = function(tag_id, params){
         }
       },
       color: {
-        value: '#136a8a'
+        value: '#fd1d1d'
       },
       shape: {
         type: 'circle',
         stroke: {
           width: 0,
-          color: '#ff0000'
+          color: '##fd1d1d'
         },
         polygon: {
           nb_sides: 5
