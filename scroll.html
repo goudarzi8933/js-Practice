@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none !important;
+            color: #040101;
+        }
+
+        ul,
+        li {
+            list-style-type: none;
+        }
+
+        #header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: 400;
+            width: 100%;
+            margin-bottom: 50px;
+            background: linear-gradient(#555555, #000000);
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+                rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+            transition: 0.5s;
+        }
+
+        #header .nav-menu {
+            display: flex;
+            padding: 5px;
+            transition: 1s;
+        }
+
+        #header .nav-menu nav {
+            display: flex;
+            justify-content: center;
+            padding: 5px 10px;
+            margin-left: 40px;
+        }
+
+        #header .nav-list {
+            background: linear-gradient(#555555, #000000);
+            text-align: center;
+            outline: 2px solid #00a8f06b;
+            border-radius: 5px;
+            padding: 5px 10px;
+            margin-right: 10px;
+        }
+
+        #header .nav-menu nav a {
+            padding: 5px;
+            display: block;
+            color: white;
+        }
+
+        #header .nav-list .movie-dropdown,
+        #header .nav-list .series-dropdown {
+            background: #000000df;
+            border-radius: 5px;
+            max-width: 100%;
+            padding: 12px;
+            display: none;
+            position: absolute;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.02);
+        }
+
+        #header .nav-list .movie-dropdown a,
+        #header .nav-list .series-dropdown a {
+            border-radius: 5px;
+        }
+
+        #header .nav-list:hover .movie-dropdown,
+        #header .nav-list:hover .series-dropdown {
+            display: block;
+        }
+
+        #header .nav-lis:hover,
+        .movie-dropdown>a:hover,
+        .series-dropdown>a:hover {
+            background: none;
+            background-color: #040101;
+            box-shadow: 0px 30px 60px -12px inset;
+        }
+
+        #header .enter {
+            display: flex;
+        }
+
+        #header .login,
+        #header .register {
+            padding: 5px 10px;
+            color: white;
+            display: inline-block;
+            transition: 0.5s;
+            background: linear-gradient(#555555, #000000);
+            text-align: center;
+            outline: 2px solid #00a8f06b;
+            border-radius: 5px;
+            padding: 10px 15px;
+            margin-right: 2px;
+        }
+
+        #header .logo {
+            display: inline-block;
+            padding: 5px 10px 0 10px;
+            margin-left: 20px;
+        }
+
+        #header .logo img {
+            width: 160px;
+            height: 40px;
+            background: transparent;
+        }
+
+        #header .bar-icon {
+            display: none;
+        }
+
+        #header .holder i {
+            font-size: 40px;
+            padding: 0 10px;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        @media screen and (max-width: 750px) {
+
+            #header .nav-list,
+            #header .enter {
+                display: none;
+            }
+
+            #header .bar-icon {
+                display: block;
+            }
+
+            #header {
+                background: linear-gradient(#dedcdc, #827e7e);
+            }
+        }
+    </style>
+</head>
+
+<body onscroll="scrollHandler(this)">
+
+    <header id="header">
+        <div class="nav-menu">
+            <div class="logo">
+                <img src="assets/img/harry-potter-logo-png-8.png" alt="logo" />
+            </div>
+            <nav>
+                <div class="nav-list .nav-list-home">
+                    <a href="#">Home</a>
+                </div>
+                <div class="nav-list nav-list-movie">
+                    <a href="#" class="">movie</a>
+                    <div class="movie-dropdown">
+                        <a href="#">Seven</a>
+                        <a href="#">Her</a>
+                        <a href="#">Sinister</a>
+                        <a href="#">Inception</a>
+                    </div>
+                </div>
+
+                <div class="nav-list nav-list-series">
+                    <a href="#" class="">Series</a>
+                    <div class="series-dropdown">
+                        <a href="#">Walking Dead</a>
+                        <a href="#">Vikings</a>
+                        <a href="#">Breaking Bad</a>
+                        <a href="#"> freinds </a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="enter">
+            <a href="#" class="login"> Login </a>
+            <a href="#" class="register">Sign Up</a>
+        </div>
+        <div class="bar-icon">
+            <div class="holder">
+                <i class="ion-android-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+
+</body>
+
+</html>
