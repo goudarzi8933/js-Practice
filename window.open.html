@@ -11,10 +11,14 @@
     <button onclick="openWindow()">Open Window</button>
 
     <script>
+        let newWindow;
         function openWindow() {
-            let newWindow = window.open("", "newWindow", "width=400, height=200");
+            newWindow = window.open("", "newWindow", "width=400, height=200");
             newWindow.document.write("<p>This is a new window'</p>");
             newWindow.opener.document.write("<p>This is the source window!</p>");
+            setTimeout(function () {
+                newWindow.close()
+            }, 1000)
         }
     </script>
 
