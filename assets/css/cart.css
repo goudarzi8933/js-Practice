@@ -75,8 +75,8 @@
 }
 
 .btn {
-  display: flex;
-  justify-content: space-evenly;
+  /* display: flex; */
+  /* justify-content: space-evenly; */
   /* border: 1px solid red; */
   margin-left: 25px;
   padding: 5px;
@@ -84,7 +84,7 @@
 
 .btn button {
   padding: 2px 8px;
-  background: #d266b7d2;
+  /* background: #d266b7d2; */
   border: none;
   border-radius: 5px;
   font-size: 15px;
