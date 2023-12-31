@@ -60,7 +60,6 @@
             if (cartIndex == -1) {
                 cart.push({
                     count: 1,
-                    product_title: products[productIndex].title,
                     product_id: products[productIndex].id,
                     product_price: products[productIndex].price,
                 });
@@ -75,7 +74,6 @@
         }
 
         function minusFromCart(id) {
-            // console.log("hi");
             let cartIndex = cart.findIndex(function (item) {
                 return item.product_id == id;
             });
