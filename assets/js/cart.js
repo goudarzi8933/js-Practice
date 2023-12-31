@@ -1,4 +1,5 @@
 
+
         let cart = [];
         let products = [
             { id: 125, url: 'https://s6.uupload.ir/files/7c1c17c262412ed239550c38da2405a4_0l4x.jpg', price: 25000 },
@@ -18,10 +19,10 @@
             
             <span>${filterProducts[i].price}</span>
             <br>
-            <div class='btn'>
-                <button onclick="addToCart(${filterProducts[i].id})">add</button>
-            <span data-count-id="${filterProducts[i].id}">0</span>
-            <button onclick="minusFromCart(${filterProducts[i].id})">minus</button>
+            <div class='btn d-flex justify-content-evenly'>
+                <button onclick="addToCart(${filterProducts[i].id})" class='btn-success'> + </button>
+            <span data-count-id="${filterProducts[i].id}" >0</span>
+            <button onclick="minusFromCart(${filterProducts[i].id})" class='btn-danger'> - </button>
             </div>
         </div>`;
             }
