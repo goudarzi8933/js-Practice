@@ -35,7 +35,6 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
   /* margin: 0 auto; */
   padding: 15px;
 }
@@ -177,7 +176,14 @@ li:last-of-type {
 }
 
 @media screen and (max-width: 1075px) {
-  .filter,
+  .filter {
+    flex-wrap: wrap;
+    margin-left: 200px;
+  }
+  /* .filter input,
+  .filter select {
+    display: block;
+  } */
   .item {
     margin-left: 200px;
   }
