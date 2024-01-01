@@ -45,13 +45,13 @@
         }
 
         input {
-            /* position: relative; */
+            position: relative;
             background: #f9fdff;
             height: 100%;
             width: 100%;
             border-radius: 3px;
             border: 1px solid #48b3fb;
-            padding-left: 60px;
+            padding-left: 10px;
             outline: none;
             color: #48b3fb;
             font-family: 'Poppins', sans-serif;
@@ -60,10 +60,11 @@
 
         input:focus {
             background: #fff;
-            box-shadow: 0 0 0 4px #48b3fb69;
+            box-shadow: 0 0 0 4px #48b3fba3;
         }
 
         .show-hide {
+            display: block;
             position: absolute;
             right: 20px;
             top: 50%;
@@ -78,15 +79,6 @@
             transition: transform 0.3s ease-in-out;
         }
 
-        /*.show-hide i.hide::before {
-            content: '\f070';
-        }*/
-
-        /* input:valid~.show-hide i {
-            transform: translateX(0);
-        }*/
-
-        /* Responsive */
         @media screen and (max-width: 768px) {
             .content {
                 transform: scale(0.8);
@@ -100,29 +92,14 @@
         <label for="pass">password</label>
         <input type="password" id="pass" placeholder="Enter Password" required />
         <span class="show-hide">
-            <i class="fa fa-eye" id="showPass"></i>
-            <i class="fa fa-eye-slash" id="hidePass" style="display: none;"></i>
+            <i class="fa fa-eye" aria-hidden="true" id="showPass"></i>
+            <i class="fa fa-eye-slash" aria-hidden="true" id="hidePass"></i>
         </span>
     </div>
 
 
-    <script>
-        document.getElementById('showPass').onclick = function () {
-            document.getElementById('pass').type = 'text';
-            document.getElementById('showPass').style.display = 'none';
-            document.getElementById('hidePass').style.display = 'inline';
-        }
 
-        document.getElementById('hidePass').onclick = function () {
-            document.getElementById('pass').type = 'text';
-            document.getElementById('showPass').style.display = 'inline';
-            document.getElementById('hidePass').style.display = 'none';
-        }
-
-
-
-    </script>
-    <!-- <script src="script.js"></script> -->
+    <script src="showpass.html"></script>
 </body>
 
 </html>
