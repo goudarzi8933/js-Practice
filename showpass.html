@@ -39,7 +39,7 @@
             background: #48b3fb;
             color: #fff;
             line-height: 48px;
-            font-size1820px;
+            font-size: 15px;
             border-radius: 3px 0 0 3px;
             border: 1px solid #48b3fb;
         }
@@ -67,32 +67,24 @@
             display: block;
             position: absolute;
             right: 10px;
-            top: 50%;
-            transform: translateY(-50%);
+            top: 15px;
         }
 
         .show-hide i {
             font-size: 19px;
             color: #48b3fb;
             cursor: pointer;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        @media screen and (max-width: 768px) {
-            .content {
-                transform: scale(0.8);
-            }
         }
     </style>
 </head>
 
 <body>
     <div class="content">
-        <label for="pass">password</label>
-        <input type="password" id="pass" placeholder="Enter Password" required />
+        <label for="password">password</label>
+        <input type="password" id="password" placeholder="Enter Password" required />
         <span class="show-hide">
             <i class="fa fa-eye" aria-hidden="true" id="showPass"></i>
-            <i class="fa fa-eye-slash" aria-hidden="true" id="hidePass" style="display: none;"></i>
+            <!-- <i class="fa fa-eye-slash" aria-hidden="true" id="hidePass" style="display: none;"></i> -->
         </span>
     </div>
 
