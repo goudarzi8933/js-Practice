@@ -14,6 +14,127 @@
     <title>Document</title>
     <!-- <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script> -->
 
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap");
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: monospace;
+
+        }
+
+
+
+        .containerWidth {
+            width: 50%;
+        }
+
+        #inputBox:focus {
+            border-color: #5d5d5a;
+            box-shadow: none;
+        }
+
+        #plusBtn {
+            background-color: #0b8457;
+            transition: 0.5s;
+        }
+
+        #plusBtn:focus {
+            box-shadow: none;
+        }
+
+        #plusBtn:hover {
+            background-color: #2cb978;
+        }
+
+        .item {
+            border: 1px solid #5d5d5a;
+            border-radius: 0.25rem;
+            margin: 0.25rem 0;
+            padding: 0.25rem 0.75rem;
+            display: flex;
+            justify-content: space-between;
+
+        }
+
+        .item p {
+            font-size: 1rem;
+            padding-top: 7px;
+        }
+
+        .fa-square {
+            position: relative;
+            color: #0b8457;
+            margin-top: 0.7rem;
+            cursor: pointer;
+        }
+
+        .fa-check-square {
+            color: #0b8457;
+            margin-top: 0.7rem;
+            position: absolute;
+            cursor: pointer;
+        }
+
+        .text {
+            font-size: 1.5rem;
+        }
+
+        .fa-trash {
+            margin-top: 0.7rem;
+            color: #ff304f;
+            cursor: pointer;
+        }
+
+        .fa-trash:hover {
+            animation: swing 1.5s infinite;
+        }
+
+        .completed {
+            color: #575151;
+            text-decoration: line-through;
+            font-size: 1rem;
+            padding: 0.4rem 0;
+        }
+
+        @keyframes swing {
+            15% {
+                transform: rotate3d(0, 0, 1, 15deg);
+            }
+
+            30% {
+                transform: rotate3d(0, 0, 1, -10deg);
+            }
+
+            45% {
+                transform: rotate3d(0, 0, 1, 5deg);
+            }
+
+            60% {
+                transform: rotate3d(0, 0, 1, -5deg);
+            }
+
+            75% {
+                transform: rotate3d(0, 0, 1, 0deg);
+            }
+
+            100% {
+                transform: rotate3d(0, 0, 1, 0deg);
+            }
+        }
+
+        @media screen and (max-width: 576px) {
+            .containerWidth {
+                width: 75%;
+            }
+        }
+    </style>
+
 </head>
 
 <body>
