@@ -189,7 +189,33 @@
             $(this).val("");
         });
 
+        // $(function () {
+        //     // $('#inputBox')
 
+        //     let list = document.getElementById('inputBox').value;
+        //     // Set Item
+        //     localStorage.setItem(`"toDoList", ${list}`);
+        //     // Retrieve
+        //     document.getElementById("boxList").innerHTML = localStorage.getItem("toDoList");
+        // })
+
+
+
+        $(".box").on("click", ".item .fa-trash", function () {
+            $(this).parent().fadeOut(500, function () {
+                $(this).remove();
+            });
+        });
+
+
+        $(".box").on("click", ".item .fa-square", function () {
+            $(this).next().removeClass("d-none");
+            $(this).siblings(".text").addClass("completed");
+        });
+        $(".box").on("click", ".item .fa-check-square", function () {
+            $(this).addClass("d-none");
+            $(this).siblings(".text").removeClass("completed");
+        });
 
 
     </script>
