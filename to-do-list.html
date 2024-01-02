@@ -15,8 +15,6 @@
     <!-- <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script> -->
 
     <style>
-        @import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap");
-
         * {
             margin: 0;
             padding: 0;
@@ -175,6 +173,26 @@
     <script src="assets/js/jquery-3.7.1.min.js"></script>
     <script src="assets/js/jquery.color-2.1.2.min.js"></script>
     <!-- <script src="assets/js/helpers.js"></script> -->
+
+    <script>
+        // updateList();
+        $("#inputBox").change(function () {
+            console.log($(this).val());
+            $(".box").prepend(
+                `<div class="item container">
+            <i class="far fa-square"></i>
+            <i class="fas fa-check-square d-none"></i>
+            <p class="text m-0 col-10">` + $(this).val() + `</p>
+            <i class="fas fa-trash"></i>
+            </div>`
+            );
+            $(this).val("");
+        });
+
+
+
+
+    </script>
 
 
 </body>
