@@ -18,38 +18,112 @@
             box-sizing: border-box;
         }
 
-        #header,
-        #desc {
-            border: 1px solid red;
-            padding: 5px;
+        .question-box {
+            margin-bottom: 20px;
+        }
+
+        .question-box div {
+            width: 100%;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .question-box .text-light:focus {
+            outline: none !important;
+            box-shadow: none;
+        }
+
+        .question-box div .collapse-icon {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: 30px;
+            top: -1px;
+            transition: 0.2s;
+            font-size: 25px;
+        }
+
+        .up {
+            display: none;
         }
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <div class="row">
-            <div id="header">
-                Lorem ipsum dolor sit.
 
+
+    <div class="container mt-3">
+        <div class="row justify-content-center gy-2">
+            <!-- ------------- 1---------- -->
+
+            <div class="col-sm-12 question-box position-relative">
+                <div id="header1" class="qbox  py-2 px-3  bg-danger text-light text-start ">
+                    First Question
+                    <span class="collapse-icon up "><i class="fa fa-angle-up"></i></span>
+                    <span class="collapse-icon down"><i class="fa fa-angle-down"></i></span>
+                </div>
+                <div class="collapse answerbox pt-2" id="firstQuestion">
+                    <div class="card card-body">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Libero dicta perferendis deleniti
+                        rem aspernatur iusto cumque veniam accusamus consectetur neque.
+                    </div>
+                </div>
             </div>
-            <div id="desc">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, excepturi?
+
+            <!-- ------------- 2---------- -->
+
+            <div class="col-sm-12 question-box position-relative" id="header2">
+                <div class="qbox  py-2 px-3  bg-danger text-light text-start ">
+                    Secend Question
+                    <span class="collapse-icon up "><i class="fa fa-angle-up"></i></span>
+                    <span class="collapse-icon down"><i class="fa fa-angle-down"></i></span>
+                </div>
+                <div class="collapse answerbox pt-2" id="secondQuestion">
+                    <div class="card card-body">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Libero dicta perferendis deleniti
+                        rem aspernatur iusto cumque veniam accusamus consectetur neque.
+                    </div>
+                </div>
+            </div>
+
+            <!-- ------------- 3---------- -->
+
+            <div id="header3" class="col-sm-12  question-box position-relative">
+                <div class="qbox  py-2 px-3  bg-danger text-light text-start ">
+                    Third Question
+                    <span class="collapse-icon up "><i class="fa fa-angle-up"></i></span>
+                    <span class="collapse-icon down"><i class="fa fa-angle-down"></i></span>
+                </div>
+                <div class="collapse answerbox pt-2" id="thirdQuestion">
+                    <div class="card card-body">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Libero dicta perferendis deleniti
+                        rem aspernatur iusto cumque veniam accusamus consectetur neque.
+                    </div>
+                </div>
+            </div>
+
+            <!-- ------------- 4---------- -->
+
+            <div class="col-sm-12 question-box position-relative">
+                <div id="header4" class="qbox  py-2 px-3 bg-danger text-light text-start ">
+                    fourth Question
+                    <span class="collapse-icon up "><i class="fa fa-angle-up"></i></span>
+                    <span class="collapse-icon down"><i class="fa fa-angle-down"></i></span>
+                </div>
+                <div class="collapse answerbox pt-2" id="fourthQuestion">
+                    <div class="card card-body">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Libero dicta perferendis deleniti
+                        rem aspernatur iusto cumque veniam accusamus consectetur neque.
+                    </div>
+                </div>
             </div>
         </div>
-
     </div>
 
     <script src="assets/js/jquery-3.7.1.min.js"></script>
     <script src="assets/js/jquery.color-2.1.2.min.js"></script>
 
-    <script>
-        $(function () {
-            $('#header').click(function () {
-                $('#desc').toggle(1000);
-            })
-        });
-    </script>
+
 </body>
 
 </html>
