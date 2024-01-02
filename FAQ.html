@@ -123,6 +123,19 @@
     <script src="assets/js/jquery-3.7.1.min.js"></script>
     <script src="assets/js/jquery.color-2.1.2.min.js"></script>
 
+    <script>
+        $(function () {
+            $('#header1').click(function () {
+                $('#firstQuestion').slideToggle(1000);
+                $('#header1 .up').toggle();
+                $('#header1 .down').toggle();
+                $('#header1 .up').css("color", "#FF9800");
+            });
+
+
+        });
+    </script>
+
 
 </body>
 
