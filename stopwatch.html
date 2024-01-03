@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            /* background-color: white; */
+            /* display: table; */
+            /* margin: auto; */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            direction: rtl;
+            background: linear-gradient(90deg, rgb(90, 183, 36) 23%, rgb(3, 95, 148) 100%) !important;
+            font-family: tahoma;
+            color: #FFF;
+        }
+
+        .cm {
+            max-width: 85em;
+            min-width: 320px;
+            margin: 15% auto;
+            padding: 0 0.5em;
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        .box {
+            margin: 0 auto;
+            width: 60%;
+            text-align: center;
+            border: 1px solid #FFF;
+            padding: 3rem;
+        }
+
+        #display {
+            margin: 0 auto;
+            padding-top: 30px;
+            padding-bottom: 30px;
+            font-size: 40px;
+
+        }
+
+        button {
+            background: #487a8a;
+            border: 1px solid #FFF;
+            color: #FFF;
+            padding: 1em 2em;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: 0.5s;
+            /* display: flex; */
+            /* flex-wrap: wrap; */
+            justify-content: center;
+            align-items: center;
+        }
+
+        button:hover {
+            color: #fff;
+            background: rgba(10, 107, 75, 0.762);
+        }
+
+        table#historyTable {
+            margin: 3em auto;
+            border: 1px solid white;
+            text-align: center;
+            width: 40%;
+        }
+
+        #historyTable thead {
+            margin: 0 auto;
+        }
+
+        .scrollable {
+            width: 100%;
+            overflow-y: auto;
+            max-height: 15em;
+        }
+
+        table#historyRows {
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        table#historyRows td {
+            padding: 0.5em 0.5em;
+        }
+
+        table#historyRows tr:nth-child(odd) {
+            background-color: white;
+            color: teal;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cm">
+        <div class="box">
+            <p id="display"><span id="seconds">00</span> : <span id="minutes">00</span></p>
+            <div class="buttons">
+                <button id="start">شروع / توقف </button>
+                <button id="reset">شروع مجدد</button>
+                <button id="record">ثبت</button>
+            </div>
+        </div>
+        <table id="historyTable">
+            <thead>
+                <th>Past Times</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="scrollable">
+                            <table id="historyRows"></table>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <script src="assets/js/jquery-3.7.1.min.js"></script>
+    <!-- <script src="assets/js/jquery.color-2.1.2.min.js"></script> -->
+
+    <script>
+        $(function () {
+
+            // let time = 0;
+            // let seconds = 0;
+            // let minutes = 0;
+            // let hours = 0;
+            // let Interval;
+
+            // let wasPaused = true;
+            // let startButton = $('#start');
+            // // let stopButton = $('#stop');
+            // let resetButton = $('#reset');
+            // let recordButton = $('#record');
+            // let display = $('#display');
+            // let hr = $('#hours');
+            // let min = $('#minutes');
+            // let sec = $('#seconds');
+
+            let pastTimes = [];
+
+            let interval;
+            let time = 0;
+            let secondsCount = 0;
+            let minutesCount = 0;
+
+            let wasPaused = true;
+            let startButton = $('#start');
+            let resetButton = $('#reset');
+            let recordButton = $('#record');
+            let display = $('#display');
+            let seconds = $('#seconds');
+            let minutes = $('#minutes');
+
+
+            let startCallback = function () {
+
+                if (wasPaused) {
+                    clearInterval(interval);
+                    interval = setInterval(startTimer, 100);
+                    wasPaused = false;
+                } else {
+                    clearInterval(interval);
+                    wasPaused = true;
+                }
+
+            };
+            startButton.on('click', startCallback);
+
+            let resetCallback = function () {
+                clearInterval(interval);
+                wasPaused = true;
+                secondsCount = 0;
+                minutesCount = 0;
+                seconds.html("00");
+                minutes.html("00");
+                $('#historyRows').html("");
+            };
+            resetButton.on('click', resetCallback);
+
+            let recordCallback = function () {
+                let row = $('<tr/>');
+                let cell = $('<td/>');
+
+                let m, s;
+                m = minutesCount;
+                s = secondsCount;
+                if (secondsCount < 10) {
+                    s = '0' + secondsCount;
+                }
+                if (secondsCount === 0 && minutesCount === 0) {
+                    s = '00';
+                    m = '00';
+                }
+                if (minutesCount < 10) {
+                    m = '0' + minutesCount;
+                }
+                let inner = m + ':' + s;
+                cell.html(inner);
+                row.append(cell);
+                $('#historyRows').append(row);
+            };
+            recordButton.on('click', recordCallback);
+
+
+            function startTimer() {
+                secondsCount++;
+                if (secondsCount < 10) {
+                    seconds.html('0' + secondsCount);
+                }
+                if (secondsCount > 9) {
+                    seconds.html(secondsCount);
+                }
+                if (secondsCount > 99) {
+                    minutesCount++;
+                    minutes.html('0' + minutesCount);
+                    secondsCount = 0;
+                    seconds.html('0' + 0);
+                }
+                if (minutesCount > 9) {
+                    minutes.html(minutesCount);
+                }
+            }
+        });
+
+
+
+    </script>
+</body>
+
+</html>
