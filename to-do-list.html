@@ -26,6 +26,12 @@
 
         }
 
+        ul,
+        li {
+            display: block;
+            list-style-type: none;
+        }
+
 
 
         .containerWidth {
@@ -118,11 +124,11 @@
             }
 
             75% {
-                transform: rotate3d(0, 0, 1, 10deg);
+                transform: rotate3d(0, 0, 1, 5deg);
             }
 
             100% {
-                transform: rotate3d(0, 0, 1, 10deg);
+                transform: rotate3d(0, 0, 1, 5deg);
             }
         }
 
@@ -147,76 +153,77 @@
                     class="fas fa-plus"></i></button>
         </div>
     </div>
-    <div class="containerWidth box container p-0 mt-3" id="boxList">
-        <div class="item container">
+    <ul class="containerWidth box container p-0 mt-3" id="boxList">
+        <li class="item container">
             <i class="far fa-square"></i>
             <i class="fas fa-check-square d-none"></i>
             <p class="text m-0 col-10">cycling</p>
             <i class="fas fa-trash"></i>
-        </div>
-        <div class="item container">
+        </li>
+        <li class="item container">
             <i class="far fa-square"></i>
             <i class="fas fa-check-square d-none"></i>
             <p class="text m-0 col-10">Buy a book</p>
             <i class="fas fa-trash"></i>
-        </div>
-        <div class="item container">
+        </li>
+        <li class="item container">
             <i class="far fa-square"></i>
             <i class="fas fa-check-square d-none"></i>
             <p class="text m-0 col-10">watch movie</p>
             <i class="fas fa-trash"></i>
-        </div>
-    </div>
+        </li>
+    </ul>
 
 
 
     <script src="assets/js/jquery-3.7.1.min.js"></script>
     <script src="assets/js/jquery.color-2.1.2.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <!-- <script src="assets/js/helpers.js"></script> -->
 
+
     <script>
-        // updateList();
-        $("#inputBox").change(function () {
-            // console.log($(this).val());
-            $(".box").prepend(
-                `<div class="item container">
+        $(function () {
+            let $tasklist = $('.box');
+
+            $("#inputBox").change(function () {
+                // console.log($(this).val());
+                $(".box").prepend(
+                    `<div class="item container">
             <i class="far fa-square"></i>
             <i class="fas fa-check-square d-none"></i>
             <p class="text m-0 col-10">` + $(this).val() + `</p>
             <i class="fas fa-trash"></i>
             </div>`
-            );
-            $(this).val("");
-        });
-
-        // $(function () {
-        //     // $('#inputBox')
-
-        //     let list = document.getElementById('inputBox').value;
-        //     // Set Item
-        //     localStorage.setItem(`"toDoList", ${list}`);
-        //     // Retrieve
-        //     document.getElementById("boxList").innerHTML = localStorage.getItem("toDoList");
-        // })
-
-
-
-        $(".box").on("click", ".item .fa-trash", function () {
-            $(this).parent().fadeOut(700, function () {
-                $(this).remove();
+                );
+                $(this).val("");
             });
-        });
+
+            $tasklist.sortable({
+                cursor: "grabbing",
+            }).disableSelection();
 
 
-        $(".box").on("click", ".item .fa-square", function () {
-            $(this).next().removeClass("d-none");
-            $(this).siblings(".text").addClass("completed");
-        });
-        $(".box").on("click", ".item .fa-check-square", function () {
-            $(this).addClass("d-none");
-            $(this).siblings(".text").removeClass("completed");
-        });
 
+
+
+            $(".box").on("click", ".item .fa-trash", function () {
+                $(this).parent().fadeOut(700, function () {
+                    $(this).remove();
+                });
+            });
+
+
+            $(".box").on("click", ".item .fa-square", function () {
+                $(this).next().removeClass("d-none");
+                $(this).siblings(".text").addClass("completed");
+            });
+            $(".box").on("click", ".item .fa-check-square", function () {
+                $(this).addClass("d-none");
+                $(this).siblings(".text").removeClass("completed");
+            });
+
+        })
     </script>
 
 
