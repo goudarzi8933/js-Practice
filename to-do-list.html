@@ -71,6 +71,11 @@
             padding-top: 7px;
         }
 
+        .ui-sortable-helper {
+            background: #adbb29;
+            color: #fff;
+        }
+
         .fa-square {
             position: relative;
             color: #0b8457;
@@ -147,14 +152,13 @@
     </div>
     <div class="containerWidth container p-0">
         <div class="input-group">
-            <input id="inputBox" type="text" placeholder="Add new task...." class="form-control"
-                aria-label="Add new task" aria-describedby="plusBtn">
+            <input id="inputBox" type="text" placeholder="Add new task...." class="form-control">
             <button class="btn btn-outline-secondary text-white" id="plusBtn" type="button"><i
                     class="fas fa-plus"></i></button>
         </div>
     </div>
     <ul class="containerWidth box container p-0 mt-3" id="boxList">
-        <li class="item container">
+        <!-- <li class="item container">
             <i class="far fa-square"></i>
             <i class="fas fa-check-square d-none"></i>
             <p class="text m-0 col-10">cycling</p>
@@ -171,7 +175,7 @@
             <i class="fas fa-check-square d-none"></i>
             <p class="text m-0 col-10">watch movie</p>
             <i class="fas fa-trash"></i>
-        </li>
+        </li> -->
     </ul>
 
 
@@ -184,10 +188,15 @@
 
     <script>
         $(function () {
-            let $tasklist = $('.box');
+            // $('#inputBox').val("");
+            var $tasklist = $('#boxList');
+            // var initialTasklist = ["cycling", "buy a book"];
+            var initialTasklist = JSON.parse(localStorage.getItem('tasks'));
 
-            $("#inputBox").change(function () {
+
+            $("#inputBox").change(function prependTask() {
                 // console.log($(this).val());
+                var newTaskText = $('#inputBox').val();
                 $(".box").prepend(
                     `<div class="item container">
             <i class="far fa-square"></i>
@@ -196,22 +205,29 @@
             <i class="fas fa-trash"></i>
             </div>`
                 );
+                initialTasklist.push(newTaskText);
+                localStorage.setItem('tasks', JSON.stringify((initialTasklist)));
                 $(this).val("");
             });
 
             $tasklist.sortable({
                 cursor: "grabbing",
-            }).disableSelection();
-
-
-
+            })
 
 
             $(".box").on("click", ".item .fa-trash", function () {
-                $(this).parent().fadeOut(700, function () {
+                $(this).parent().fadeOut('slow', function () {
+                    // localStorage.removeItem("tasks");
                     $(this).remove();
+                    $(this).deleteItem();
+
                 });
+
+
             });
+            function deleteItem() {
+                localStorage.removeItem("tasks");
+            };
 
 
             $(".box").on("click", ".item .fa-square", function () {
