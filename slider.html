@@ -73,7 +73,26 @@
         <button class="prev">Prev</button>
     </div>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        let position = 0;
+        let sliderCount = $(".item").length;
+        i = 0;
+        $("ul li:last-child").prependTo($("ul"));
+        $(".next").click(function () {
+            position -= 60;
+            i++;
+            $(".item").css("transform", `translateX(${position}%)`);
+            if (i >= sliderCount) {
+                // return false;
+                $('.item').stop().animate("transform", `translateX(${position}=0)`);
+                // $('.item').css("transform", `translateX(0)`);
+                // $('.item').stop().css("transform", `translateX(${sliderCount})`);
 
+            }
+        });
+
+    </script>
 </body>
 
 </html>
