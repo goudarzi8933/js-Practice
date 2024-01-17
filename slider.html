@@ -91,7 +91,13 @@
 
             }
         });
+        $(".prev").click(function () {
+            position += 60;
+            // i--;
+            $(".item").css("transform", `translateX(${position}%)`);
 
+
+        });
     </script>
 </body>
 
